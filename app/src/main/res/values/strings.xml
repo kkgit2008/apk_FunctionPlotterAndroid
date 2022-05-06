@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Function plotter</string>
+    <string name="plot">Plot</string>
+</resources>
