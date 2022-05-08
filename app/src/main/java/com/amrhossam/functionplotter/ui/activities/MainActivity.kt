@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.amrhossam.functionplotter.R
 import com.amrhossam.functionplotter.databinding.ActivityMainBinding
+import com.amrhossam.functionplotter.ui.utils.ValidationHelper
 import com.amrhossam.functionplotter.ui.viewModel.MainViewModel
 import com.amrhossam.functionplotter.ui.viewModel.MainViewModelFactory
 import com.github.mikephil.charting.animation.Easing
@@ -15,12 +16,16 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import kotlinx.coroutines.DelicateCoroutinesApi
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private var seriesList = ArrayList<Entry>()
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
 
+    @DelicateCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,23 +41,22 @@ class MainActivity : AppCompatActivity() {
         )[MainViewModel::class.java]
     }
 
+    @DelicateCoroutinesApi
     private fun handleOnPlot() {
         binding.plot.setOnClickListener {
-            val min = binding.min.text.toString().toInt()
-            val max = binding.max.text.toString().toInt()
-            val exp = binding.enterExp.text.toString().trim()
-            //re initiating dataset and lien chart
-            seriesList.clear()
-            binding.lineChart.clear()
-            // start generating data set
-            setDataToLineChart(min, max, exp)
+            val min: String = binding.min.text.toString()
+            val max: String = binding.max.text.toString()
+            val exp: String = binding.enterExp.text.toString().trim()
+            if (ValidationHelper.isNotEmpty(this@MainActivity, exp, min, max)) {
+                //re initiating dataset and lien chart
+                seriesList.clear()
+                binding.lineChart.clear()
+                // start generating data set
+                setDataToLineChart(min.toInt(), max.toInt(), exp.lowercase(Locale.getDefault()))
+            }
         }
-        //OBSERVING GENERATED DATA FROM THE VIEW MODEL
-        viewModel.generatedListLiveData.observe(this) {
-            // "it" is a pointer pointing in our generated list
-            // passing it to showChart Method to start drawing points
-            showChart(it)
-        }
+        //Start observing data
+        observingGeneratedData()
     }
 
     private fun initLineChart() {
@@ -62,34 +66,42 @@ class MainActivity : AppCompatActivity() {
         val yAxis: YAxis = binding.lineChart.axisLeft
         xAxis.setDrawGridLines(true)
         xAxis.setDrawAxisLine(true)
-        //enabling right Y-axis
+        //Enabling right Y-axis
         binding.lineChart.axisRight.isEnabled = true
-        //remove legend
+        //Remove legend
         binding.lineChart.legend.isEnabled = false
-        //remove description label
+        //Remove description label
         binding.lineChart.description.isEnabled = false
         //Drawing point over time and use animation
         binding.lineChart.animateX(1500, Easing.EaseInExpo)
-//       xAxis.axisMaximum = 20f
-//       xAxis.axisMinimum = 1f
+        //Scaling options
         binding.lineChart.isDragEnabled = true
         binding.lineChart.setScaleEnabled(true)
         binding.lineChart.setPinchZoom(true)
-        // binding.lineChart.xAxis.textColor = ContextCompat.getColor(this@MainActivity, R.color.yellow)
-        //to draw label on xAxis
+        //To draw label on xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawLabels(true)
         //Size on x,y difference
         xAxis.granularity = 1f
         yAxis.granularity = 1f
-
+        //xAxis Label rotation
         xAxis.labelRotationAngle = +90f
     }
 
+    private fun observingGeneratedData() {
+        //OBSERVING GENERATED DATA FROM THE VIEW MODEL
+        viewModel.generatedListLiveData.observe(this) {
+            // "it" is a pointer pointing in our generated list
+            // passing it to showChart Method to start drawing points
+            showChart(it)
+        }
+    }
+
+    @DelicateCoroutinesApi
     private fun setDataToLineChart(min: Int, max: Int, exp: String) {
-        binding.loading.progress.visibility = View.VISIBLE
+        //binding.loading.progress.visibility = View.VISIBLE
         //start generating data set in background using threads
-        viewModel.generateSeries(min, max, exp)
+        viewModel.generateSeries(this, min, max, exp, binding.loading.progress)
     }
 
     private fun showChart(entries: ArrayList<Entry>) {
