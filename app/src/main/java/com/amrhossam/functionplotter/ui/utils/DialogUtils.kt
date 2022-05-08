@@ -1,6 +1,5 @@
 package com.amrhossam.functionplotter.ui.utils
 
-import android.R
 import android.app.AlertDialog
 import android.content.Context
 import kotlinx.coroutines.DelicateCoroutinesApi
