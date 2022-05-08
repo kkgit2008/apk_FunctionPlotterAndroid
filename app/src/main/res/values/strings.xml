@@ -21,4 +21,5 @@
         - We only support this operations (*/+-) \n
         - Please check your formula again !
     </string>
+    <string name="okay">Okay</string>
 </resources>

@@ -2,6 +2,7 @@ package com.amrhossam.functionplotter.ui.utils
 
 import android.app.AlertDialog
 import android.content.Context
+import com.amrhossam.functionplotter.R
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -12,13 +13,11 @@ class DialogUtils {
     companion object {
         @DelicateCoroutinesApi
         fun showErrorDialog(ctx: Context, title: String, errorMessage: String) {
-            //set icon
             GlobalScope.launch(Dispatchers.Main) {
                 AlertDialog.Builder(ctx)
-//                    .setIcon(R.drawable.ic_dialog_alert) //set title
-                    .setTitle(title) //set message
-                    .setMessage(errorMessage) //set positive button
-                    .setPositiveButton("Okay") { _, _ -> }.show()
+                    .setTitle(title)
+                    .setMessage(errorMessage)
+                    .setPositiveButton(ctx.getString(R.string.okay)) { _, _ -> }.show()
             }
 
         }
