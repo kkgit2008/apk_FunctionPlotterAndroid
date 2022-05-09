@@ -1,6 +1,7 @@
 package com.amrhossam.functionplotter.ui.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         //Remove description label
         binding.lineChart.description.isEnabled = false
         //Setting background for line chart
-        binding.lineChart.setBackgroundColor(ContextCompat.getColor(this, R.color.darkerGray))
+        binding.lineChart.setBackgroundColor(ContextCompat.getColor(this, R.color.darkerGray2))
         //Drawing point over time and use animation
         binding.lineChart.animateX(1500, Easing.EaseInExpo)
         //Scaling options
@@ -89,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         //Size on x,y difference
         xAxis.granularity = 1f
         yAxis.granularity = 1f
-        //
+        //changing text colors
         binding.lineChart.xAxis.textColor = ContextCompat.getColor(
             this, R.color.white
         )
@@ -99,7 +100,8 @@ class MainActivity : AppCompatActivity() {
         rAxis.textColor = ContextCompat.getColor(
             this, R.color.white
         )
-
+        //No data text
+        binding.lineChart.setNoDataText("")
         //xAxis Label rotation
         xAxis.labelRotationAngle = +90f
     }
@@ -109,7 +111,19 @@ class MainActivity : AppCompatActivity() {
         viewModel.generatedListLiveData.observe(this) {
             // "it" is a pointer pointing in our generated list
             // passing it to showChart Method to start drawing points
+            if (it.isNotEmpty()) {
+                binding.noChartDataView.getRoot().visibility = View.GONE
+                binding.lineChart.visibility = View.VISIBLE
+            }
             showChart(it)
+        }
+        viewModel.isEmptyData.observe(this) {
+            if (it){
+                binding.noChartDataView.getRoot().visibility = View.VISIBLE
+
+                binding.lineChart.visibility = View.GONE
+                binding.loading.progress.visibility = View.GONE
+            }
         }
     }
 
@@ -117,11 +131,18 @@ class MainActivity : AppCompatActivity() {
     private fun setDataToLineChart(min: Int, max: Int, exp: String) {
         //binding.loading.progress.visibility = View.VISIBLE
         //start generating data set in background using threads
-        viewModel.generateSeries(this, min, max, exp, binding.loading.progress)
+        viewModel.generateSeries(
+            this,
+            min,
+            max,
+            exp,
+            binding.loading.progress
+        )
     }
 
     private fun showChart(entries: ArrayList<Entry>) {
         //setting progress visibility gone
+        Log.e("amr", entries.size.toString() + " l")
         binding.loading.progress.visibility = View.GONE
         //give line chart the dataset entries
         val lineDataSet = LineDataSet(entries, "")
@@ -129,6 +150,7 @@ class MainActivity : AppCompatActivity() {
         initChart(lineDataSet)
         //init line data
         val lineData = LineData(lineDataSet)
+
         //start viewing
         binding.lineChart.data = lineData
         binding.lineChart.invalidate()
@@ -142,10 +164,10 @@ class MainActivity : AppCompatActivity() {
         //value text size
         lineData.valueTextSize = 8f
         //change the color of the line
-        lineData.color = ContextCompat.getColor(this@MainActivity, R.color.colorPrimary)
+        lineData.color = ContextCompat.getColor(this@MainActivity, R.color.primary)
         //
         lineData.valueTextColor = ContextCompat.getColor(this@MainActivity, R.color.white)
         //change the color of the circle
-        lineData.setCircleColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimary))
+        lineData.setCircleColor(ContextCompat.getColor(this@MainActivity, R.color.primary))
     }
 }

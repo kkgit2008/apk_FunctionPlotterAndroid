@@ -15,12 +15,19 @@ import org.mariuszgromada.math.mxparser.Expression
 
 class MainViewModel : ViewModel() {
     var generatedListLiveData = MutableLiveData<ArrayList<Entry>>()
+    var isEmptyData = MutableLiveData(false)
 
     private val viewModelJob = SupervisorJob()
     private val uiScope = CoroutineScope(Dispatchers.IO + viewModelJob)
 
     @DelicateCoroutinesApi
-    fun generateSeries(ctx: Context, min: Int, max: Int, exp: String, loading: View) {
+    fun generateSeries(
+        ctx: Context,
+        min: Int,
+        max: Int,
+        exp: String,
+        loading: View,
+    ) {
         // running thread to start calculating points(x,y) using kotlin Coroutines
         if (ValidationHelper.validateExpression(ctx, exp, min, max)) {
             loading.visibility = View.VISIBLE
@@ -42,12 +49,16 @@ class MainViewModel : ViewModel() {
                     //Validating expression again
                     if (expressionResult.toFloat().isNaN()) {
                         //Back again to ui thread to make hide progress bar
-                        GlobalScope.launch(Dispatchers.Main) { loading.visibility = View.GONE }
+//                        GlobalScope.launch(Dispatchers.Main) {
+//                            loading.visibility = View.GONE
+//                            noViewChart.visibility = View.VISIBLE
+//                        }
                         DialogUtils.showErrorDialog(
                             ctx,
                             ctx.getString(R.string.wrong_expression),
                             ctx.getString(R.string.wrong_formula)
                         )
+                        isEmptyData.postValue(true)
                         return@launch
                     }
                     //Adding points to seriesList
@@ -59,8 +70,13 @@ class MainViewModel : ViewModel() {
                 // using postValue instead of value = seriesList because it's called asynchronous
                 // and we running a background thread
                 generatedListLiveData.postValue(seriesList)
+                //we have data
+                isEmptyData.postValue(false)
             }
 
+        } else {
+            // there is no data we should notify ui !
+            isEmptyData.postValue(true)
         }
     }
 
