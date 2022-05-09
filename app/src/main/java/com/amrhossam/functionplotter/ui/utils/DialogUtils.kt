@@ -19,9 +19,6 @@ class DialogUtils {
                     .setMessage(errorMessage)
                     .setPositiveButton(ctx.getString(R.string.okay)) { _, _ -> }.show()
             }
-
         }
-
     }
-
 }

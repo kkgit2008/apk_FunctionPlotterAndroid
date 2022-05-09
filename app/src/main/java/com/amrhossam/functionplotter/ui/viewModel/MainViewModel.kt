@@ -45,7 +45,7 @@ class MainViewModel : ViewModel() {
                         GlobalScope.launch(Dispatchers.Main) { loading.visibility = View.GONE }
                         DialogUtils.showErrorDialog(
                             ctx,
-                            ctx.getString(R.string.error),
+                            ctx.getString(R.string.wrong_expression),
                             ctx.getString(R.string.wrong_formula)
                         )
                         return@launch

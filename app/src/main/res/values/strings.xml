@@ -7,7 +7,7 @@
     <string name="validate_function_of_x">Please enter an expression of f(x)</string>
     <string name="please_enter_min_value">Please enter a min value</string>
     <string name="please_enter_max_value">Please enter a max value</string>
-
+    <string name="expression_hint">5*x^3 + 2*x</string>
     <string name="empty_range">Empty range</string>
     <string name="error">Error</string>
     <string name="empty_expression">Empty Expression</string>
@@ -16,9 +16,10 @@
     <string name="enter_min_value">Enter min value</string>
     <string name="enter_max_value">Enter max value</string>
     <string name="f_x_math_expression">F(x) = Math expression</string>
-    <string name="wrong_formula">Make sure expression is of (x) ! \n \n
-        - In case of using log make sure to include the base for example log10(x)\n
-        - We only support this operations (*/+-) \n
+    <string name="wrong_formula">Make sure expression is of (x) only ! \n \n
+        - In case of using log make sure to include the base for example log10(x) &amp; make sure ranges is positive\n\n
+        - In case of using power make sure to type like that 2^x\n \n
+        - We only support this operations (+-/*^) \n \n
         - Please check your formula again !
     </string>
     <string name="okay">Okay</string>

@@ -64,6 +64,8 @@ class MainActivity : AppCompatActivity() {
         binding.lineChart.axisLeft.setDrawGridLines(true)
         val xAxis: XAxis = binding.lineChart.xAxis
         val yAxis: YAxis = binding.lineChart.axisLeft
+        val rAxis: YAxis = binding.lineChart.axisRight
+
         xAxis.setDrawGridLines(true)
         xAxis.setDrawAxisLine(true)
         //Enabling right Y-axis
@@ -72,18 +74,32 @@ class MainActivity : AppCompatActivity() {
         binding.lineChart.legend.isEnabled = false
         //Remove description label
         binding.lineChart.description.isEnabled = false
+        //Setting background for line chart
+        binding.lineChart.setBackgroundColor(ContextCompat.getColor(this, R.color.darkerGray))
         //Drawing point over time and use animation
         binding.lineChart.animateX(1500, Easing.EaseInExpo)
         //Scaling options
         binding.lineChart.isDragEnabled = true
         binding.lineChart.setScaleEnabled(true)
         binding.lineChart.setPinchZoom(true)
+        binding.lineChart.setTouchEnabled(true)
         //To draw label on xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawLabels(true)
         //Size on x,y difference
         xAxis.granularity = 1f
         yAxis.granularity = 1f
+        //
+        binding.lineChart.xAxis.textColor = ContextCompat.getColor(
+            this, R.color.white
+        )
+        yAxis.textColor = ContextCompat.getColor(
+            this, R.color.white
+        )
+        rAxis.textColor = ContextCompat.getColor(
+            this, R.color.white
+        )
+
         //xAxis Label rotation
         xAxis.labelRotationAngle = +90f
     }
@@ -126,8 +142,10 @@ class MainActivity : AppCompatActivity() {
         //value text size
         lineData.valueTextSize = 8f
         //change the color of the line
-        lineData.color = ContextCompat.getColor(this@MainActivity, R.color.yellow)
+        lineData.color = ContextCompat.getColor(this@MainActivity, R.color.colorPrimary)
+        //
+        lineData.valueTextColor = ContextCompat.getColor(this@MainActivity, R.color.white)
         //change the color of the circle
-        lineData.setCircleColor(ContextCompat.getColor(this@MainActivity, R.color.yellow))
+        lineData.setCircleColor(ContextCompat.getColor(this@MainActivity, R.color.colorPrimary))
     }
 }
