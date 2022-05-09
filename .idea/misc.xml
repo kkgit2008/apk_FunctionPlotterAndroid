@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Functionplotter/app/src/main/res/drawable/ic_round_show_chart_24.xml" value="0.23958333333333334" />
         <entry key="..\:/Functionplotter/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Functionplotter/app/src/main/res/layout/no_chart_view.xml" value="0.21927083333333333" />
         <entry key="..\:/Functionplotter/app/src/main/res/layout/progress_bar.xml" value="0.136" />
       </map>
     </option>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkerGray"
+    android:background="@color/darkerGray2"
     tools:context=".ui.activities.MainActivity">
 
     <ScrollView
@@ -37,9 +37,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,32 +49,27 @@
 
                     <EditText
                         android:id="@+id/min"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        android:layout_weight="0.5"
                         android:hint="@string/enter_min_value"
                         android:importantForAutofill="no"
                         android:inputType="numberSigned"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/color_hint" />
 
                     <EditText
                         android:id="@+id/max"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        android:layout_weight=".5"
                         android:hint="@string/enter_max_value"
-
                         android:importantForAutofill="no"
                         android:inputType="numberSigned"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/color_hint" />
 
                     <EditText
                         android:id="@+id/enterExp"
@@ -85,14 +80,16 @@
                         android:hint="@string/expression_hint"
                         android:importantForAutofill="no"
                         android:inputType="text"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/color_hint" />
 
                     <Button
                         android:id="@+id/plot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.3"
-                        android:backgroundTint="@color/colorPrimary"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary"
                         android:text="@string/plot"
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,27 +98,39 @@
                 </LinearLayout>
             </LinearLayout>
 
+
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/lineChart"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
             <include
                 android:id="@+id/loading"
                 layout="@layout/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/lineChart" />
+            <include
+                android:id="@+id/noChartDataView"
+                layout="@layout/no_chart_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
