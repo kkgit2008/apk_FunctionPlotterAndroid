@@ -15,6 +15,7 @@ Function Plotter Android App
 - MVVM
 - Kotlin Coroutines 
 
+## Running Project
 First, clone the repo:
 
 `git clone git@github.com:amrhossamdev/Function-Plotter-Android-App.git`
