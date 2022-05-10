@@ -28,31 +28,26 @@ class MainViewModel : ViewModel() {
         exp: String,
         loading: View,
     ) {
-        // running thread to start calculating points(x,y) using kotlin Coroutines
+        // running thread to start calculating points(x,y) using kotlin Coroutines in background
         if (ValidationHelper.validateExpression(ctx, exp, min, max)) {
             loading.visibility = View.VISIBLE
             uiScope.launch {
                 val seriesList = ArrayList<Entry>()
-                val ex = Expression(exp)
-                Log.e("Exp", exp)
+                val expression = Expression(exp)
+                Log.d("Expression", exp)
                 for (x in min.toInt()..max.toInt()) {
                     // assign x = values from min..to...max
                     val arg = Argument("x = $x")
                     //adding arguments to our expression
-                    ex.addArguments(arg)
+                    expression.addArguments(arg)
                     //evaluate expression to get y points
-                    val expressionResult = ex.calculate()
+                    val expressionResult = expression.calculate()
                     //adding x,y to series list
                     //line chart takes array of entry object
                     Log.d("Series,", "$x || $expressionResult")
                     //In case of getting wrong values because of wrong expression
                     //Validating expression again
                     if (expressionResult.toFloat().isNaN()) {
-                        //Back again to ui thread to make hide progress bar
-//                        GlobalScope.launch(Dispatchers.Main) {
-//                            loading.visibility = View.GONE
-//                            noViewChart.visibility = View.VISIBLE
-//                        }
                         DialogUtils.showErrorDialog(
                             ctx,
                             ctx.getString(R.string.wrong_expression),
@@ -64,7 +59,7 @@ class MainViewModel : ViewModel() {
                     //Adding points to seriesList
                     seriesList.add(Entry(x.toFloat(), expressionResult.toFloat()))
                     //remove argument after calculating
-                    ex.removeArguments(arg)
+                    expression.removeArguments(arg)
                 }
                 // passing data to livedata
                 // using postValue instead of value = seriesList because it's called asynchronous
@@ -79,5 +74,4 @@ class MainViewModel : ViewModel() {
             isEmptyData.postValue(true)
         }
     }
-
 }

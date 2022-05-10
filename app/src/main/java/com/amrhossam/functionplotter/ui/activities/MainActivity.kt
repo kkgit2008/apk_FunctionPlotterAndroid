@@ -2,12 +2,15 @@ package com.amrhossam.functionplotter.ui.activities
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.amrhossam.functionplotter.R
 import com.amrhossam.functionplotter.databinding.ActivityMainBinding
+import com.amrhossam.functionplotter.ui.utils.DialogUtils
 import com.amrhossam.functionplotter.ui.utils.ValidationHelper
 import com.amrhossam.functionplotter.ui.viewModel.MainViewModel
 import com.amrhossam.functionplotter.ui.viewModel.MainViewModelFactory
@@ -170,4 +173,25 @@ class MainActivity : AppCompatActivity() {
         //change the color of the circle
         lineData.setCircleColor(ContextCompat.getColor(this@MainActivity, R.color.primary))
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    @DelicateCoroutinesApi
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.about -> {
+                DialogUtils.showErrorDialog(
+                    this,
+                    getString(R.string.author),
+                    getString(R.string.about_the_author)
+                )
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }

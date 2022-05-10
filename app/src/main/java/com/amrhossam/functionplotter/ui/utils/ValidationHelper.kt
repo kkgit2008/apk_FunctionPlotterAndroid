@@ -7,7 +7,6 @@ import java.util.*
 
 class ValidationHelper {
 
-
     companion object {
         @DelicateCoroutinesApi
         fun isNotEmpty(ctx: Context, expression: String, min: String, max: String): Boolean {
@@ -66,13 +65,13 @@ class ValidationHelper {
             return s.isEmpty()
         }
 
-        private fun isValidMinAndMax(min: Int, max: Int): Boolean {
+        private fun isValidMinAndMax(min: Float, max: Float): Boolean {
             if (min >= max) return false
             return true
         }
 
         @DelicateCoroutinesApi
-        fun validateExpression(ctx: Context, exp: String, min: Int, max: Int): Boolean {
+        fun validateExpression(ctx: Context, exp: String, min: Float, max: Float): Boolean {
             //Checking if it's balanced equation
             if (!isContainX(exp)) {
                 DialogUtils.showErrorDialog(

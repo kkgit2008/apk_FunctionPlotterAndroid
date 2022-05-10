@@ -25,4 +25,7 @@
     </string>
     <string name="okay">Okay</string>
     <string name="start_typing_range_from_min_to_max_and_enter_an_expression">Start typing range from min to max and enter an expression !</string>
+    <string name="about">About</string>
+    <string name="author">Author</string>
+    <string name="about_the_author">Amr Hossam, Follow me @amrhossamdev github, linkedin, twitter</string>
 </resources>
