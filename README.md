@@ -9,7 +9,11 @@ Function Plotter Android App
 |<img width="600" alt="Function Plotter" src="https://github.com/amrhossamdev/Function-Plotter-Android-App/blob/master/screenshots/Screenshot_1652139446.png"> | <img width="600" alt="Function Plotter" src="https://github.com/amrhossamdev/Function-Plotter-Android-App/blob/master/screenshots/Screenshot_1652139493.png">|<img width="600" alt="Function Plotter" src="https://github.com/amrhossamdev/Function-Plotter-Android-App/blob/master/screenshots/Screenshot_1652139516.png">|
 |<img width="600" alt="Function Plotter" src="https://github.com/amrhossamdev/Function-Plotter-Android-App/blob/master/screenshots/Screenshot_1652139533.png"> | <img width="600" alt="Function Plotter" src="https://github.com/amrhossamdev/Function-Plotter-Android-App/blob/master/screenshots/Screenshot_1652139845.png"> | <img width="600" alt="Function Plotter" src="https://github.com/amrhossamdev/Function-Plotter-Android-App/blob/master/screenshots/Screenshot_1652140017.png">
 
-
+## Technologies
+- Native Android Development
+- Kotlin
+- MVVM
+- Kotlin Coroutines 
 
 First, clone the repo:
 
