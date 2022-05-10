@@ -1,7 +1,6 @@
 Function Plotter Android App
 =============================
-
-
+Function Plotter is an android app that plots functions the app takes minumum and maximum values for x and plot it as a graph
 
 ## Screenshots
 | | | |
