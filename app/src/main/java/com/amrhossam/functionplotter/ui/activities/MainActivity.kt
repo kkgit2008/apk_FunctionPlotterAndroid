@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
         lineData.valueTextSize = 8f
         //change the color of the line
         lineData.color = ContextCompat.getColor(this@MainActivity, R.color.primary)
-        //
+        //values text color
         lineData.valueTextColor = ContextCompat.getColor(this@MainActivity, R.color.white)
         //change the color of the circle
         lineData.setCircleColor(ContextCompat.getColor(this@MainActivity, R.color.primary))
