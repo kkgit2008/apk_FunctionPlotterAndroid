@@ -23,8 +23,8 @@ class MainViewModel : ViewModel() {
     @DelicateCoroutinesApi
     fun generateSeries(
         ctx: Context,
-        min: Int,
-        max: Int,
+        min: Float,
+        max: Float,
         exp: String,
         loading: View,
     ) {
@@ -35,7 +35,7 @@ class MainViewModel : ViewModel() {
                 val seriesList = ArrayList<Entry>()
                 val ex = Expression(exp)
                 Log.e("Exp", exp)
-                for (x in min..max) {
+                for (x in min.toInt()..max.toInt()) {
                     // assign x = values from min..to...max
                     val arg = Argument("x = $x")
                     //adding arguments to our expression

@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 seriesList.clear()
                 binding.lineChart.clear()
                 // start generating data set
-                setDataToLineChart(min.toInt(), max.toInt(), exp.lowercase(Locale.getDefault()))
+                setDataToLineChart(min.toFloat(), max.toFloat(), exp.lowercase(Locale.getDefault()))
             }
         }
         //Start observing data
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
     private fun observingGeneratedData() {
         //OBSERVING GENERATED DATA FROM THE VIEW MODEL
         viewModel.generatedListLiveData.observe(this) {
-            // "it" is a pointer pointing in our generated list
+            // "it" holding our generated list
             // passing it to showChart Method to start drawing points
             if (it.isNotEmpty()) {
                 binding.noChartDataView.getRoot().visibility = View.GONE
@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
             showChart(it)
         }
         viewModel.isEmptyData.observe(this) {
-            if (it){
+            if (it) {
                 binding.noChartDataView.getRoot().visibility = View.VISIBLE
 
                 binding.lineChart.visibility = View.GONE
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @DelicateCoroutinesApi
-    private fun setDataToLineChart(min: Int, max: Int, exp: String) {
+    private fun setDataToLineChart(min: Float, max: Float, exp: String) {
         //binding.loading.progress.visibility = View.VISIBLE
         //start generating data set in background using threads
         viewModel.generateSeries(

@@ -20,7 +20,8 @@
         - In case of using log make sure to include the base for example log10(x) &amp; make sure ranges is positive\n\n
         - In case of using power make sure to type like that 2^x\n \n
         - We only support this operations (+-/*^) \n \n
-        - Please check your formula again !
+        - Please check your formula again ! \n \n
+        - Check if there division by zero
     </string>
     <string name="okay">Okay</string>
     <string name="start_typing_range_from_min_to_max_and_enter_an_expression">Start typing range from min to max and enter an expression !</string>
