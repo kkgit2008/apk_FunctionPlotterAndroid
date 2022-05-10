@@ -2,13 +2,16 @@ Function Plotter Android App
 =============================
 
 
-
-
 ## Screenshots
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139446.png?token=GHSAT0AAAAAABQGSFXFVE5V7KBDOFCX2W52YT2I2KQ"> | <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139493.png?token=GHSAT0AAAAAABQGSFXFH7KDT5Z2JVH4UIOAYT2I2LQ">|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139516.png?token=GHSAT0AAAAAABQGSFXEK5VJHIET5VHYUNHYYT2I2NQ">|
-|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139533.png?token=GHSAT0AAAAAABQGSFXEICCO4SZKR636KXQUYT2I2PA"> | <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139845.png?token=GHSAT0AAAAAABQGSFXF54VYJYEKO4KDKKXUYT2I2QA">|
+|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139533.png?token=GHSAT0AAAAAABQGSFXEICCO4SZKR636KXQUYT2I2PA"> | <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139845.png?token=GHSAT0AAAAAABQGSFXF54VYJYEKO4KDKKXUYT2I2QA">|<img width="600" alt="Function Plotter" src="
+https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652140017.png?token=GHSAT0AAAAAABQGSFXFLBAHHEP6F3ZI3UAEYT2I2SA">
+
+
+
+
 
 First, clone the repo:
 
