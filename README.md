@@ -3,14 +3,13 @@ Function Plotter Android App
 
 
 
+
 ## Screenshots
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="600" alt="Function Plotter"z src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139446.png?token=GHSAT0AAAAAABQGSFXE5A4JYBNVZCIOEKSKYT2IL5A"> | <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139493.png?token=GHSAT0AAAAAABQGSFXEQMVLLXBFPJI4WHB4YT2IL7A">|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139516.png?token=GHSAT0AAAAAABQGSFXF7AJWQQTTQJRFXPSGYT2IRSA">|
+|<img width="600" alt="Function Plotter"src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139446.png?token=GHSAT0AAAAAABQGSFXE5A4JYBNVZCIOEKSKYT2IL5A"> | <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139493.png?token=GHSAT0AAAAAABQGSFXEQMVLLXBFPJI4WHB4YT2IL7A">|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139516.png?token=GHSAT0AAAAAABQGSFXF7AJWQQTTQJRFXPSGYT2IRSA">|
 |<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139533.png?token=GHSAT0AAAAAABQGSFXF5HOGUS36EWWXUZJ4YT2IMBA"> |
- <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139533.png?token=GHSAT0AAAAAABQGSFXEEVRJ7UACMZJFLJMCYT2IRTQ">|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139845.png?token=GHSAT0AAAAAABQGSFXFEWPAINUJCVUIZENUYT2IRVQ>|
-|
-|
+ <img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139533.png?token=GHSAT0AAAAAABQGSFXEEVRJ7UACMZJFLJMCYT2IRTQ">|<img width="600" alt="Function Plotter" src="https://raw.githubusercontent.com/amrhossamdev/Function-Plotter-Android-App/master/screenshots/Screenshot_1652139845.png?token=GHSAT0AAAAAABQGSFXFEWPAINUJCVUIZENUYT2IRVQ>
 ## Building the Dr Smart Android App
 
 First, clone the repo:
