@@ -34,3 +34,7 @@ Connect an Android device to your development machine.
 
 * Select `Run -> Run 'app'` (or `Debug 'app'`) from the menu bar
 * Select the device you wish to run the app on and click 'OK'
+
+## Download APK
+
+<p><a href="https://github.com/amrhossamdev/Function-Plotter-Android-App/raw/master/app/release/app-release.apk">Download APK</a></p>
