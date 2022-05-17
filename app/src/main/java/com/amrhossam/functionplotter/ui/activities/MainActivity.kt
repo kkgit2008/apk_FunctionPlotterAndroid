@@ -68,12 +68,11 @@ class MainActivity : AppCompatActivity() {
         binding.lineChart.axisLeft.setDrawGridLines(true)
         val xAxis: XAxis = binding.lineChart.xAxis
         val yAxis: YAxis = binding.lineChart.axisLeft
-        val rAxis: YAxis = binding.lineChart.axisRight
 
         xAxis.setDrawGridLines(true)
         xAxis.setDrawAxisLine(true)
         //Enabling right Y-axis
-        binding.lineChart.axisRight.isEnabled = true
+        binding.lineChart.axisRight.isEnabled = false
         //Remove legend
         binding.lineChart.legend.isEnabled = false
         //Remove description label
@@ -98,9 +97,6 @@ class MainActivity : AppCompatActivity() {
             this, R.color.white
         )
         yAxis.textColor = ContextCompat.getColor(
-            this, R.color.white
-        )
-        rAxis.textColor = ContextCompat.getColor(
             this, R.color.white
         )
         //No data text
