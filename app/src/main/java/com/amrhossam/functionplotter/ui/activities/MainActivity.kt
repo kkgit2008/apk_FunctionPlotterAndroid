@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showChart(entries: ArrayList<Entry>) {
         //setting progress visibility gone
-        Log.e("amr", entries.size.toString() + " l")
+       // Log.e("entries size", entries.size.toString() + " l")
         binding.loading.progress.visibility = View.GONE
         //give line chart the dataset entries
         val lineDataSet = LineDataSet(entries, "")
