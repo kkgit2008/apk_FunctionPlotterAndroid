@@ -37,4 +37,4 @@ Connect an Android device to your development machine.
 
 ## Download APK
 
-<p>- Click here to <a href="https://github.com/amrhossamdev/Function-Plotter-Android-App/raw/master/app/release/app-release.apk">Download APK</a></p>
+<p>- Click here to <a href="https://drive.google.com/file/d/1Rm0_xdUEQVJlkuJDZtmc3Ee5EuBccLVy/view">Download APK</a></p>
