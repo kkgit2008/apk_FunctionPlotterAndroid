@@ -5,14 +5,15 @@ import androidx.lifecycle.ViewModelProvider
 
 
 class MainViewModelFactory : ViewModelProvider.Factory {
-    // We are using view model factory to ensure that app didn't crash when activity not found
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            return MainViewModel() as T
-        }
-        throw IllegalArgumentException("UnknownViewModel")
-    }
 
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            MainViewModel() as T
+        } else {
+            throw IllegalArgumentException("Unknown ViewModel class: ${modelClas>
+        }
+    }
 }
 
 
